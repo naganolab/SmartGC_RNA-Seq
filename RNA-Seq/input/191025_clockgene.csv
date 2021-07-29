@@ -1,0 +1,49 @@
+name,ID,description,Arabidopsis
+LHY,Os08g0157600,late elongated hypocotyl,"LHY, CCA1"
+PRR73,Os03g0284100,pseudo response regulator,"PRR7, 3"
+PRR37,Os07g0695100,pseudo response regulator,"PRR7, 3"
+PRR95,Os09g0532400,pseudo response regulator,"PRR9, 5"
+PRR59,Os11g0157600,pseudo response regulator,"PRR9, 5"
+PRR1,Os02g0618200,pseudo response regulator,TOC1
+GI,Os01g0182600,GIGANTIA,GI
+PCL1,Os01g0971800,PHYTOCLOCK1,LUX
+ELF3-1,Os06g0142600,early floweing,ELF3
+ELF3-2,Os01g0566100,early floweing,ELF3
+ELF4_chr.3,Os03g0410300,early floweing,ELF4
+ELF4_chr.8,Os08g0366200,early floweing,ELF4
+ELF4_chr.11,Os11g0621500,early floweing,ELF4
+CHE,Os02g0635800,CCA1 HIKING EXPEDITION,CHE
+PHYA ,Os03g0719800,phytochrome,PHY
+PHYB,Os03g0309200,phytochrome,PHY
+PHYC,Os03g0752100,phytochrome,PHY
+CRY1,Os04g0452100,cryptochrome,CRY
+CRY2,Os02g0573200,cryptochrome,CRY
+ZTL1,Os02g0150800,ZEITLUPE,ZTL
+ZTL2,Os06g0694000,ZEITLUPE,ZTL
+UVR8,Os08g0430700,ultraviolet-B receptor,UVR8
+OsPHOT1,Os01g0186200,phototropin,phot
+OsPHOT2,Os04g0304200,phototropin,phot
+FKF1,Os11g0547000,Flavin binding Kelch Fbox,FKF
+OsPIL11,Os12g0610200,phytochrome interacting factor,PIF
+OsPIL12,Os03g0639300,phytochrome interacting factor,PIF
+OsPIL13,Os03g0782500,phytochrome interacting factor,PIF
+OsPIL14,Os07g0143200,phytochrome interacting factor,PIF
+OsPIL15,Os01g0286100,phytochrome interacting factor,PIF
+OsPIL16,Os05g0139100,phytochrome interacting factor,PIF
+RVE,Os02g0680700,REVEILLE,RVE
+RVE,Os06g0669700,REVEILLE,RVE
+RVE,Os04g0583900,REVEILLE(LHY_chr.4),RVE
+RVE,Os06g0728700,REVEILLE(LHY_chr.6),RVE
+RVE,Os06g0105800,REVEILLE,RVE
+RVE,Os02g0685200,REVEILLE(LHY_chr.2),RVE
+LNK,Os03g0387900,LNK,LNK
+BBX,Os04g0493000,BBX,BBX
+BBX,Os02g0606200,BBX,BBX
+Hd1,Os06g0275000,Heading date 1,CO
+BBX,Os02g0610500,BBX,BBX
+BBX,Os06g0298200,BBX,BBX
+BBX,Os04g0497700,BBX,BBX
+CDF,Os03g0169600,CDF,CDF
+CDF,Os01g0264000,CDF,CDF
+CDF,Os07g0685000,CDF,CDF
+SIG5,Os05g0586600,Sigma factor E,SIG5

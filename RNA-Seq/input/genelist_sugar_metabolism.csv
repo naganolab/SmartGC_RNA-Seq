@@ -1,0 +1,172 @@
+Biochemical function,Gene name,Gene ID (RAP-DB)
+Sucrose phosphate synthase,SPS1,Os01g0919400
+Sucrose phosphate synthase,SPS2,Os02g0184400
+Sucrose phosphate synthase,SPS6,Os06g0643800
+Sucrose phosphate synthase,SPS8,Os08g0301500
+Sucrose phosphate synthase,SPS11,Os11g0236100
+Sucrose phosphate phosphatase,SPP1,Os01g0376700
+Sucrose phosphate phosphatase,SPP2,Os02g0143100
+Sucrose phosphate phosphatase,SPP5,Os05g0144900
+Fructose bisphosphatase,cFBP1,Os01g0866400
+Fructose bisphosphatase,cFBP2,Os05g0438600
+Fructose bisphosphatase,pFBP,Os03g0267300
+Cell-wall invertase,CIN1,Os02g0534400
+Cell-wall invertase,CIN2/GIF1,Os04g0413500
+Cell-wall invertase,CIN3/INV4,Os04g0413200
+Cell-wall invertase,CIN4,Os01g0966700
+Cell-wall invertase,CIN5,Os04g0664900
+Cell-wall invertase,CIN6,Os04g0664800
+Cell-wall invertase,CIN7/INV1,Os09g0255000
+Vacuolar invertase,INV2/VIN1,Os04g0535600
+Vacuolar invertase,INV3/VIN2,Os02g0106100
+Neutral/Alkaline invertase,NIN1,Os03g0314800
+Neutral/Alkaline invertase,NIN2,Os01g0332100
+Neutral/Alkaline invertase,NIN3,Os02g0529400
+Neutral/Alkaline invertase,NIN4,Os04g0409900
+Neutral/Alkaline invertase,NIN5,Os02g0125600
+Neutral/Alkaline invertase,NIN6,Os11g0175400
+Neutral/Alkaline invertase,NIN7,Os04g0432400
+Neutral/Alkaline invertase,NIN8,Os02g0550600
+Sucrose synthase,SUS1,Os03g0401300
+Sucrose synthase,SUS2,Os06g0194900
+Sucrose synthase,SUS3,Os07g0616800
+Sucrose synthase,SUS4,Os03g0340500
+Sucrose synthase,SUS5,Os04g0309600
+Sucrose synthase,SUS6,Os02g0831500
+Sucrose synthase,SUS7,Os04g0249500
+ADP-glucose pyrophosphatase,AGPL1,Os05g0580000
+ADP-glucose pyrophosphatase,AGPL2,Os01g0633100
+ADP-glucose pyrophosphatase,AGPL3,Os03g0735000
+ADP-glucose pyrophosphatase,AGPL4,Os07g0243200
+ADP-glucose pyrophosphatase,AGPS1,Os09g0298200
+ADP-glucose pyrophosphatase,AGPS2,Os08g0345800
+Starch synthase,SSI,Os06g0160700
+Starch synthase,SSIIa/ALK,Os06g0229800
+Starch synthase,SSIIb,Os02g0744700
+Starch synthase,SSIIc,Os10g0437600
+Starch synthase,SSIIIa,Os08g0191433
+Starch synthase,SSIIIb,Os04g0624600
+Starch synthase,SSIVa,Os01g0720600
+Starch synthase,SSIVb,Os05g0533600
+Starch synthase,GBSSI/Wx1,Os06g0133000
+Starch synthase,GBSSII,Os07g0412100
+Branching enzyme,BEI/SBE1,Os06g0726400
+Branching enzyme,BEIIa/SBE4,Os04g0409200
+Branching enzyme,BEIIb/SBE3,Os02g0528200
+Isoamylase/Debranching enzyme,ISA1,Os08g0520900
+Isoamylase/Debranching enzyme,ISA2,Os05g0393700
+Isoamylase/Debranching enzyme,ISA3,Os09g0469400
+Isoamylase/Debranching enzyme,PUL,Os04g0164900
+Starch phosphorylase,PHOL/PHO1,Os03g0758100
+Starch phosphorylase,PHOH/PHO2,Os01g0851700
+Deproportionating enzyme,DPEI,Os07g0627000
+Deproportionating enzyme,DPEII,Os07g0662900
+ƒ¿-amylase,Ramy1A,Os02g0765600
+ƒ¿-amylase,Ramy1B,Os01g0357400
+ƒ¿-amylase,Ramy1C,Os02g0765400
+ƒ¿-amylase,Ramy2A,Os06g0713800
+ƒ¿-amylase,Ramy3A,Os09g0457400
+ƒ¿-amylase,Ramy3B,Os09g0457600
+ƒ¿-amylase,Ramy3C,Os09g0457800
+ƒ¿-amylase,Ramy3D,Os08g0473900
+ƒ¿-amylase,Ramy3E,Os08g0473600
+ƒ¿-amylase,Ramy4A,Os01g0715400
+ƒ¿-amylase,Ramy4B,Os04g0403300
+ƒÀ-amylase,BAM1,Os07g0543300
+ƒÀ-amylase,BAM2,Os10g0465700
+ƒÀ-amylase,BAM3,Os03g0141200
+ƒÀ-amylase,BAM4,Os01g0236800
+ƒÀ-amylase,BAM5,Os10g0565200
+ƒÀ-amylase,BAM6,Os07g0543100
+ƒÀ-amylase,BAM7,Os07g0667100
+ƒÀ-amylase,BAM8,Os09g0569200
+ƒÀ-amylase,BAM9,Os03g0351300
+Glucan dikinase,PWD1,Os12g0297500
+Glucan dikinase,GWD1,Os06g0498400
+Sucrose transporter,SUT1,Os03g0170900
+Sucrose transporter,SUT2,Os12g0641400
+Sucrose transporter,SUT3,Os10g0404500
+Sucrose transporter,SUT4,Os02g0827200
+Sucrose transporter,SUT5,Os02g0576600
+Triosephosphate/Pi translocator,TPT1,Os01g0239200
+Triosephosphate/Pi translocator,TPT2,Os05g0241200
+Glucose-6-phospahte/Pi translocator,GPT1,Os08g0187800
+Glucose-7-phospahte/Pi translocator,GPT2,Os07g0523600
+Glucose-8-phospahte/Pi translocator,GPT2-3,Os07g0523400
+Glucose translocator,pGlcT,Os01g0133400
+Maltose translocator,MT/MEX1,Os04g0602400
+ADP-glucose translocator,ADPGT1,Os02g0202400
+ADP-glucose translocator,ADPGT2/BT1-2,Os05g0171300
+ADP-glucose translocator,ADPGT3/BT1-3,Os06g0602700
+Tonoplast monosaccharide transporter,TMT1,Os10g0539900
+Tonoplast monosaccharide transporter,TMT2,Os02g0229400
+SWEET sugar transporter,SWEET1a,Os01g0881300
+SWEET sugar transporter,SWEET1b,Os05g0426000
+SWEET sugar transporter,SWEET2a,Os01g0541800
+SWEET sugar transporter,SWEET2b,Os01g0700100
+SWEET sugar transporter,SWEET3a,Os05g0214300
+SWEET sugar transporter,SWEET3b,Os01g0223200
+SWEET sugar transporter,SWEET4,Os02g0301100
+SWEET sugar transporter,SWEET5,Os05g0588500
+SWEET sugar transporter,SWEET6a,Os01g0606000
+SWEET sugar transporter,SWEET6b,Os01g0605700
+SWEET sugar transporter,SWEET7a,Os09g0254600
+SWEET sugar transporter,SWEET7b,Os09g0258700
+SWEET sugar transporter,SWEET7c,Os12g0178500
+SWEET sugar transporter,SWEET7d,Os09g0259200
+SWEET sugar transporter,SWEET7e,Os09g0256600
+SWEET sugar transporter,SWEET11,Os08g0535200
+SWEET sugar transporter,SWEET12,Os03g0347500
+SWEET sugar transporter,SWEET13,Os12g0476200
+SWEET sugar transporter,SWEET14,Os11g0508600
+SWEET sugar transporter,SWEET15,Os02g0513100
+SWEET sugar transporter,SWEET16,Os03g0341300
+UDP-glucose pyrophophorylase,UGP1,Os09g0553200
+UDP-glucose pyrophophorylase,UGP2,Os02g0117700
+UDP-glucose pyrophophorylase,UGP3,Os05g0468600
+UDP-glucose pyrophophorylase,UGP4,Os01g0264100
+Fructokinase,FK1/FKII,Os08g0113100
+Fructokinase,FK2/FKI,Os01g0894300
+Fructokinase,FK3,Os06g0232200
+Hexokinase,HXK1,Os07g0446800
+Hexokinase,HXK2,Os05g0532600
+Hexokinase,HXK3,Os01g0940100
+Hexokinase,HXK4,Os07g0197100
+Hexokinase,HXK5,Os05g0522500
+Hexokinase,HXK6,Os01g0742500
+Hexokinase,HXK7,Os05g0187100
+Hexokinase,HXK8,Os01g0190400
+Hexokinase,HXK9,Os01g0722700
+Hexokinase,HXK10,Os05g0375100
+Phosphoglucomutase,cPGM,Os03g0712700
+Phosphoglucomutase,pPGM,Os06g0476200
+Phosphoglucoisomerase,PGI1,Os03g0776000
+Phosphoglucoisomerase,PGI2,Os06g0256500
+Trehalose phosphate synthase,TPS1,Os05g0518600
+Trehalose phosphate synthase,TPS2,Os01g0749400
+Trehalose phosphate synthase,TPS3,Os01g0730300
+Trehalose phosphate synthase,TPS4,Os03g0224300
+Trehalose phosphate synthase,TPS5,Os02g0790500
+Trehalose phosphate synthase,TPS6,Os05g0517200
+Trehalose phosphate synthase,TPS7,Os08g0414700
+Trehalose phosphate synthase,TPS8,Os08g0445700
+Trehalose phosphate synthase,TPS9,Os09g0427800
+Trehalose phosphate synthase,TPS10,Os09g0397300
+Trehalose phosphate synthase,TPS11,Os09g0376800
+Trehalose phosphate phosphatase,TPP1,Os02g0661100
+Trehalose phosphate phosphatase,TPP2,Os10g0553300
+Trehalose phosphate phosphatase,TPP3,Os07g0624600
+Trehalose phosphate phosphatase,TPP4,Os02g0753000
+Trehalose phosphate phosphatase,TPP5,Os04g0554000
+Trehalose phosphate phosphatase,TPP6,Os08g0409100
+Trehalose phosphate phosphatase,TPP7,Os09g0369400
+Trehalose phosphate phosphatase,TPP8,Os06g0222100
+Trehalose phosphate phosphatase,TPP9,Os03g0386500
+Monosaccharide transporter,MST1,Os04g0452700
+Monosaccharide transporter,MST2,Os03g0594400
+Monosaccharide transporter,MST3,Os07g0106200
+Monosaccharide transporter,MST4,Os03g0218400
+Monosaccharide transporter,MST5,Os08g0178200
+Monosaccharide transporter,MST6,Os07g0559700
+Monosaccharide transporter,MST7,Os01g0567600
+Monosaccharide transporter,MST8,Os01g0567500

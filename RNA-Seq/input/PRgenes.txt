@@ -1,0 +1,62 @@
+rap	description	alias
+Os01g0382000	Pathogenesis-related protein 1	OsPR1#011ÅiOsPR1bÅj
+Os01g0382400	Pathogenesis-related protein PRMS	OsPR1#012
+Os02g0786500	Pathogenesis-related protein 1	OsPR1#021
+Os02g0786900	Pathogenesis-related protein 1	OsPR1#022
+Os05g0595000	Pathogenesis-related protein 1	OsPR1#051
+Os05g0595200	Pathogenesis-related protein 1	OsPR1#052
+Os07g0124900	Pathogenesis-related protein 1	OsPR1#071
+Os07g0127500	Pathogenesis-related protein 1	OsPR1#072
+Os07g0127600	Pathogenesis-related protein 1	OsPR1#073
+Os07g0129200	Pathogenesis-related protein PRB1-3	OsPR1#074(OsPR1a)
+Os10g0191300	Pathogenesis-related protein 1	OsPR1#101
+Os12g0633400	Pathogenesis-related protein 1	OsPR1#121
+Os01g0944500	"PR2/Beta-1,3-glucanase"	PR2
+Os03g0600600	"PR2/Beta-1,3-glucanase"	PR2
+Os07g0539900	"PR2/Beta-1,3-glucanase"	PR2
+Os01g0944800	"beta-1,3-glucanase 3"	PR2?
+Os01g0713200	"Glucan endo-1,3-beta-glucosidase"	PR2
+Os01g0940700	"Glucan endo-1,3-beta-glucosidase"	PR2
+Os01g0944700	"PR2/Beta-1,3-glucanase"	PR2
+Os05g0375400	"PR2/Beta-1,3-glucanase"	PR2
+Os06g0726200	Chitinase1	PR3-Chitinase1
+Os05g0399300	Chitinase2	PR3-Chitinase2
+Os06g0726100	Chitinase3	PR3-Chitinase3
+Os04g0493400	Chitinase4	PR3-Chitinase4
+Os04g0494100	Chitinase5	PR3-Chitinase5
+Os02g0605900	Chitinase6	PR3-Chitinase6
+Os05g0399700	Chitinase7	PR3-Chitinase7
+Os10g0542900	Chitinase8	PR3-Chitinase8
+Os05g0399400	Chitinase9	PR3-Chitinase9
+Os01g0287600	Chitinase10	PR3-Chitinase10
+Os03g0132900	Chitinase11	PR3-Chitinase11
+Os03g0418000	Chitinase12	PR3-Chitinase12
+Os11g0592200	pathogenesis-related gene 4	PR4a
+Os11g0592100	pathogenesis-related gene 4	PR4b
+Os11g0592000	pathogenesis-related gene 4	PR4c
+Os11g0591800	pathogenesis-related gene 4	PR4d
+Os03g0661600	pathogenesis-related gene 5	PR5
+Os03g0663400	Thaumatin-like protein	PR5
+Os03g0663500	Thaumatin-like protein	PR5
+Os12g0629300	Thaumatin-like protein	PR5
+Os12g0628600	Thaumatin-like protein	PR5
+Os12g0630100	Thaumatin-like protein	PR5
+Os04g0689900	pathogenesis-related gene 5	PR5
+Os05g0538500	pathogenesis-related gene 5	PR5
+Os12g0437800	pathogenesis-related 6	PR6
+Os01g0615050	chymotrypsin inhibitor-like 1	PR6(OCPI1)
+Os01g0615100	chymotrypsin inhibitor-like 2	PR6(OCPI2)
+Os01g0860500	Glycyl hydrolase 32	PR8
+Os10g0416500	pathogenesis-related protein 8	PR8
+Os07g0677200	pathogenesis-related protein	PR9
+Os12g0555500	pathogenesis-related protein 10	"PR10a, RSOsPR10"
+Os12g0555200	pathogenesis-related protein 10	PR10b
+Os12g0555300	pathogenesis-related protein 10	PR10
+Os03g0300400	pathogenesis-related protein	JIOsPR10
+Os02g0629800	Defensin	PR12
+Os07g0429600	thionin-like peptide	PR13?
+Os07g0429700	thionin-like peptide	PR13?
+Os07g0432201	thionin-like peptide	PR13?
+Os07g0432333	thionin-like peptide	PR13?
+Os03g0693700	Oxalate oxidase 24 Expressed protein	PR15
+Os01g0705100	Cupin domain containing	PR16

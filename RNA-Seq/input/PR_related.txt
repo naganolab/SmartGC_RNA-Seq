@@ -1,0 +1,19 @@
+rap	description	alias
+Os01g0194300	nonexpresser of PR genes 1	NPR1
+Os01g0767900	nonexpresser of PR genes 2	NPR2
+Os03g0667100	nonexpresser of PR genes 3	NPR3
+Os10g0569400	RICE PATHOGEN-RELATED PROTEIN	RIR1b
+Os01g0731100	Similar to Pathogen-related protein.
+Os05g0202800	Metallothionein-like protein type 3	
+Os11g0708900	Phenylalanine ammonia-lyase	
+Os12g0520200	Phenylalanine ammonia-lyase	
+Os02g0626100	Phenylalanine ammonia-lyase	
+Os02g0626400	Phenylalanine ammonia-lyase	
+Os02g0626600	Phenylalanine ammonia-lyase	
+Os04g0518100	Phenylalanine ammonia-lyase	
+Os04g0518400	Phenylalanine ammonia-lyase	PR-pha
+Os05g0427400	Phenylalanine ammonia-lyase	
+Os05g0247100	Xylanase inhibitor protein	
+Os01g0124200	Bowman-Birk serine protease inhibitor family protein	
+Os01g0127600	Bowman-Birk serine protease inhibitor family protein	
+Os08g0108100	pectinesterase inhibitor domain containing protein	
