@@ -11,7 +11,7 @@ color3 <- color5[1:3]
 #  str_split(., pattern="-") %>% 
 #  unlist() %>% 
 #  str_c(.,collapse = "")
-exec.date <- "210703"
+exec.date <- "220226"
 
 ### load file ----
 load("input/Temperature_comparison")
@@ -20,6 +20,10 @@ SmartGC_260_log <- read.csv("input/SmartGC_260_log.csv")
 GC_260_log <- read.csv("input/GC_260_log.csv")
 load("input/comparison_all")
 load("input/comparison_light_log")
+load("input/220225_R_FR_ratio_FIELD")
+load("input/220225_R_FR_ratio_SmartGC")
+load("input/220225_R_FR_ratio_GC")
+load("input/220225_spectrum")
 
 # Fig. 1a ----
 # Field Light
@@ -203,7 +207,7 @@ g1 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
     labels=c("19","21","23","1","3","5","7","9","11","13","15","17","19"))+
   ylim(0,2500)+
   #ggtitle("Irradiance")+
-  labs(x="", y=expression(paste("(Î¼mol/m"^2, "/s)")))+
+  labs(x="", y=expression(paste("(ƒÊmol/m"^2, "/s)")))+
   theme_cowplot(font_size = 6, line_size = 0.25)+
   theme(plot.title = element_blank(),
         axis.title.y = element_blank(),
@@ -409,7 +413,152 @@ ggsave(g, file=sprintf("%s_Fig1c.pdf", exec.date),
        width = 45, height = 80, units="mm")
 
 
-# Fig. S24 ----
+# Fig. S2 ----
+# Fig. S2a
+wavelength <- rep(data_spectrum$wavelength_380_780,2)
+value <- c(data_spectrum$FIELD_170921_1200, data_spectrum$SmartGC_170921_1200)
+condition <- factor(c(rep("FIELD",401),rep("SmartGC",401)),
+                    levels = c("FIELD", "SmartGC"))
+
+d <- data.frame(wavelength, value, condition)
+g1 <-  ggplot(d, aes(x=wavelength, y=value, group = condition, color=condition))+
+  geom_line(size=0.5)+
+  scale_color_manual(values = color3[1:2])+
+  scale_x_continuous(breaks=c(380,480,580,680,780),labels=c("380","480","580","680","780"))+
+  ylim(0,3000)+
+  labs(x="Wavelength (nm)", y=expression(paste("Spectral irradiance (mW ", {m^-2}, {nm^-1}, ")", sep="")))+
+  theme_cowplot(font_size = 7, line_size = 0.25)+
+  theme(plot.title = element_text(size=7, hjust = 0.5),
+        axis.title.x = element_text(size=7),
+        axis.title.y = element_text(size=7),
+        axis.text.x = element_text(size=7),
+        axis.text.y = element_text(size=7, colour = "black"),
+        legend.title = element_blank(),
+        legend.text = element_text(size=7),
+        legend.position = 'top',
+        legend.justification = "center")
+
+# Fig. S2b
+wavelength <- rep(data_spectrum$wavelength_380_780,3)
+linetype <- c(rep(1,401), rep(2, 401), rep(1,401))
+value <- c(data_spectrum$FIELD_170921_0543, data_spectrum$FIELD_170921_1755, data_spectrum$SmartGC_170921_0543)
+condition <- factor(c(rep("FIELD (dawn)",401),rep("FIELD (dusk)",401), rep("SmartGC (15 sv)",401)),
+                    levels = c("FIELD (dawn)", "FIELD (dusk)", "SmartGC (15 sv)"))
+
+d <- data.frame(wavelength, value, condition, linetype)
+g2 <-  ggplot(d, aes(x=wavelength, y=value, group = condition, color=condition))+
+  geom_line(size=0.5, linetype=linetype)+
+  scale_color_manual(values = c(color3[1], color3[1],color3[2]))+
+  scale_x_continuous(breaks=c(380,480,580,680,780),labels=c("380","480","580","680","780"))+
+  ylim(0,12)+
+  labs(x="Wavelength (nm)", y=expression(paste("Spectral irradiance (mW ", {m^-2}, {nm^-1}, ")", sep="")))+
+  theme_cowplot(font_size = 7, line_size = 0.25)+
+  theme(plot.title = element_text(size=7, hjust = 0.5),
+        axis.title.x = element_text(size=7),
+        axis.title.y = element_text(size=7),
+        axis.text.x = element_text(size=7),
+        axis.text.y = element_text(size=7, colour = "black"),
+        legend.title = element_blank(),
+        legend.text = element_text(size=7),
+        legend.position = 'top',
+        legend.justification = "center")
+
+# Fig. S2c-e
+time <- rep(as.numeric(1:841),3)
+condition <- factor(c(rep("FIELD",841),rep("FL/FTH",841),rep("CL/CTH",841)),
+                    levels = c("FIELD", "FL/FTH","CL/CTH"))
+# day 1
+value <- c(R_FR_ratio_FIELD$R_FR_170919, R_FR_ratio_SmartGC$R_FR_170919,
+           R_FR_ratio_GC$R_FR_170919)
+
+d <- data.frame(time, value, condition)
+g3 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
+  geom_line(size=0.25)+
+  scale_color_manual(values = color3)+
+  scale_x_continuous(
+    breaks=seq(1,841,120),
+    labels=c("5","7","9","11","13","15","17","19"))+
+  ylim(0,8)+
+  ggtitle("day 1 (170919)")+
+  labs(x="Time (hours)", y="Red to far-red ratio")+
+  theme_cowplot(font_size = 7, line_size = 0.25)+
+  theme(plot.title = element_text(size=7, hjust = 0.5),
+        axis.title.x = element_text(size=7),
+        axis.title.y = element_text(size=7),
+        axis.text.x = element_text(size=7),
+        axis.text.y = element_text(size=7, colour = "black"),
+        legend.title = element_blank(),
+        legend.text = element_text(size=7),
+        legend.position = 'top',
+        legend.justification = "center")
+
+# day 2
+value <- c(R_FR_ratio_FIELD$R_FR_170920, R_FR_ratio_SmartGC$R_FR_170920,
+           R_FR_ratio_GC$R_FR_170920)
+
+d <- data.frame(time, value, condition)
+g4 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
+  geom_line(size=0.25)+
+  scale_color_manual(values = color3)+
+  scale_x_continuous(
+    breaks=seq(1,841,120),
+    labels=c("5","7","9","11","13","15","17","19"))+
+  ylim(0,8)+
+  ggtitle("day 2 (170920)")+
+  labs(x="Time (hours)", y="Red to far-red ratio")+
+  theme_cowplot(font_size = 7, line_size = 0.25)+
+  theme(plot.title = element_text(size=7, hjust = 0.5),
+        axis.title.x = element_text(size=7),
+        axis.title.y = element_text(size=7),
+        axis.text.x = element_text(size=7),
+        axis.text.y = element_text(size=7, colour = "black"),
+        legend.title = element_blank(),
+        legend.text = element_text(size=7),
+        legend.position = 'top',
+        legend.justification = "center")
+
+# day 3
+value <- c(R_FR_ratio_FIELD$R_FR_170921, R_FR_ratio_SmartGC$R_FR_170921,
+           R_FR_ratio_GC$R_FR_170921)
+
+d <- data.frame(time, value, condition)
+g5 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
+  geom_line(size=0.25)+
+  scale_color_manual(values = color3)+
+  scale_x_continuous(
+    breaks=seq(1,841,120),
+    labels=c("5","7","9","11","13","15","17","19"))+
+  ylim(0,8)+
+  ggtitle("day 3 (170921)")+
+  labs(x="Time (hours)", y="Red to far-red ratio")+
+  theme_cowplot(font_size = 7, line_size = 0.25)+
+  theme(plot.title = element_text(size=7, hjust = 0.5),
+        axis.title.x = element_text(size=7),
+        axis.title.y = element_text(size=7),
+        axis.text.x = element_text(size=7),
+        axis.text.y = element_text(size=7, colour = "black"),
+        legend.title = element_blank(),
+        legend.text = element_text(size=7),
+        legend.position = 'top',
+        legend.justification = "center")
+
+# figure
+gg <- plot_grid(g1,g2, ncol=2, align = "hv")
+
+mylegend2 <- get_legend(g3)
+g3 <- g3 + theme(legend.position="none")
+g4 <- g4 + theme(legend.position="none")
+g5 <- g5 + theme(legend.position="none")
+
+gg2 <- plot_grid(mylegend2, plot_grid(g3,g4,g5, ncol=3, align = "hv"),
+               ncol=1, rel_heights = c(1,9))
+
+ggg <- plot_grid(gg,gg2, ncol=1)
+
+ggsave(ggg, file=sprintf("%s_FigS2.pdf", exec.date),
+       width = 165, height = 120, units="mm")
+
+# Fig. S3 ----
 # load standard data
 standard <- read.csv("input/standard_left.csv")
 
@@ -475,10 +624,10 @@ g1 <- ggplot(d, aes(x=set, y=value, color = set2))+
 
 print(g1)
 
-ggsave(g1, file=sprintf("%s_FigS24.pdf", exec.date),
+ggsave(g1, file=sprintf("%s_FigS3.pdf", exec.date),
        width = 80, height = 80, units="mm")
 
-### Fig. S2 ----
+### Fig. S4 ----
 # 170921 5:00-7:00
 time <- rep(as.numeric(1:121),3)
 rownames(comparison_all) <- c(1:4321)
@@ -700,116 +849,15 @@ g1 <- g1 + theme(legend.position = "none")
 g <- plot_grid(mylegend, plot_grid(g1,g4,g2,g5,g3,g6, ncol=2, align = "hv"),
                ncol=1, rel_heights = c(1,9))
 
-ggsave(g, file=sprintf("%s_FigS2_1.pdf", exec.date),
+ggsave(g, file=sprintf("%s_FigS4_1.pdf", exec.date),
        width = 120, height = 120, units = "mm")
 
 p <- plot_grid(gg1,gg2, ncol=2, align = "hv")
 
-ggsave(p, file=sprintf("%s_FigS2_2.pdf", exec.date),
+ggsave(p, file=sprintf("%s_FigS4_2.pdf", exec.date),
        width = 60, height = 30, units = "mm")
 
-### Fig. S3 ----
-### 170920 19:00- 170921 19:00
-time <- rep(as.numeric(1:1441),3)
-rownames(comparison_all) <- c(1:4321)
-value <- c(comparison_all[2881:4321,3],comparison_all[2881:4321,5],comparison_all[2881:4321,4])
-condition <- factor(c(rep("FIELD",1441),rep("FL/FTH",1441),rep("CL/CTH",1441)),
-                    levels = c("FIELD", "FL/FTH","CL/CTH"))
-
-d <- data.frame(condition, time, value)
-
-g1 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
-  geom_line(size=0.25)+
-  scale_color_manual(values = color3)+
-  scale_x_continuous(
-    breaks=seq(1,1441,120),
-    labels=c("19","21","23","1","3","5","7","9","11","13","15","17","19"))+
-  ylim(0,2500)+
-  ggtitle("Irradiance")+
-  labs(x="", y=expression(paste("(ƒÊmol/m"^2, "/s)")))+
-  theme_cowplot(font_size = 7, line_size = 0.25)+
-  theme(plot.title = element_text(size=7, hjust = 0.5),
-        axis.title.x = element_blank(),
-        axis.title.y = element_text(size=7),
-        axis.text.x = element_text(size=7),
-        axis.text.y = element_text(size=7, colour = "black"),
-        legend.title = element_blank(),
-        legend.text = element_text(size=7),
-        legend.position = 'top',
-        legend.justification = "center")
-
-
-print(g1)
-
-# temperature
-time <- rep(as.numeric(1:1441),3)
-rownames(Temperature_comparison) <- c(1:4321)
-value <- c(Temperature_comparison[2881:4321,2],Temperature_comparison[2881:4321,3],
-           Temperature_comparison[2881:4321,4])
-condition <- factor(c(rep("FIELD",1441),rep("FL/FTH",1441),rep("CL/CTH",1441)),
-                    levels = c("FIELD", "FL/FTH","CL/CTH"))
-
-d <- data.frame(condition, time, value)
-
-g2 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
-  geom_line(size=0.25)+
-  scale_color_manual(values = color3)+
-  scale_x_continuous(
-    breaks=seq(1,1441,120),
-    labels=c("19","21","23","1","3","5","7","9","11","13","15","17","19"))+
-  ylim(15,30)+
-  ggtitle("Temperature")+
-  labs(x="Time(hour)", y = expression(paste("("^o, "C)")) )+
-  theme_cowplot(font_size = 7, line_size = 0.25)+
-  theme(plot.title = element_text(size=7, hjust = 0.5),
-        axis.title.x = element_blank(),
-        axis.title.y = element_text(size=7),
-        axis.text.x = element_text(size=7),
-        axis.text.y = element_text(size=7, colour = "black"),
-        legend.position = 'none')
-
-print(g2)
-
-# Humidity
-time <- rep(as.numeric(1:1441),3)
-rownames(Humidity_comparison) <- c(1:4321)
-value <- c(Humidity_comparison[2881:4321,2],Humidity_comparison[2881:4321,3],
-           Humidity_comparison[2881:4321,4])
-condition <- factor(c(rep("FIELD",1441),rep("FL/FTH",1441),rep("CL/CTH",1441)),
-                    levels = c("FIELD", "FL/FTH","CL/CTH"))
-
-d <- data.frame(condition, time, value)
-
-g3 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
-  geom_line(size=0.25)+
-  scale_color_manual(values = color3)+
-  scale_x_continuous(
-    breaks=seq(1,1441,120),
-    labels=c("19","21","23","1","3","5","7","9","11","13","15","17","19"))+
-  ylim(40,100)+
-  ggtitle("Relative humidity")+
-  labs(x="Time (hours)", y="(%)" )+
-  theme_cowplot(font_size = 7, line_size = 0.25)+
-  theme(plot.title = element_text(size=7, hjust = 0.5),
-        axis.title.x = element_text(size=7),
-        axis.title.y = element_text(size=7),
-        axis.text.x = element_text(size=7),
-        axis.text.y = element_text(size=7, colour = "black"),
-        legend.position = 'none')
-
-print(g3)
-
-mylegend <- get_legend(g1)
-g1 <- g1 + theme(legend.position="none")
-
-g <- plot_grid(mylegend, plot_grid(g1,g2,g3, ncol=1, align = "hv"),
-               ncol=1, rel_heights = c(1,9))
-
-ggsave(g, file=sprintf("%s_FigS3.pdf", exec.date),
-       width = 90, height = 120, units="mm")
-
-
-### Fig. S4 ----
+### Fig. S5 ----
 # irradiance FL/FTH
 value <- c(comparison_all[,5], comparison_light_log[,4])
 condition <- factor(c(rep("Setting",4321),rep("Log",4321)), levels = c("Setting","Log"))
@@ -990,5 +1038,105 @@ p2 <- plot_grid(mylegend, plot_grid(g2,g4,g6, ncol=1, align = "hv"),
 
 p <- plot_grid(p1,p2)
 
-ggsave(p, file=sprintf("%s_FigS4.pdf", exec.date),
+ggsave(p, file=sprintf("%s_FigS5.pdf", exec.date),
        width = 120, height = 120, units="mm")
+
+### Fig. S6 ----
+### 170920 19:00- 170921 19:00
+time <- rep(as.numeric(1:1441),3)
+rownames(comparison_all) <- c(1:4321)
+value <- c(comparison_all[2881:4321,3],comparison_all[2881:4321,5],comparison_all[2881:4321,4])
+condition <- factor(c(rep("FIELD",1441),rep("FL/FTH",1441),rep("CL/CTH",1441)),
+                    levels = c("FIELD", "FL/FTH","CL/CTH"))
+
+d <- data.frame(condition, time, value)
+
+g1 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
+  geom_line(size=0.25)+
+  scale_color_manual(values = color3)+
+  scale_x_continuous(
+    breaks=seq(1,1441,120),
+    labels=c("19","21","23","1","3","5","7","9","11","13","15","17","19"))+
+  ylim(0,2500)+
+  ggtitle("Irradiance")+
+  labs(x="", y=expression(paste("(ƒÊmol/m"^2, "/s)")))+
+  theme_cowplot(font_size = 7, line_size = 0.25)+
+  theme(plot.title = element_text(size=7, hjust = 0.5),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=7),
+        axis.text.x = element_text(size=7),
+        axis.text.y = element_text(size=7, colour = "black"),
+        legend.title = element_blank(),
+        legend.text = element_text(size=7),
+        legend.position = 'top',
+        legend.justification = "center")
+
+
+print(g1)
+
+# temperature
+time <- rep(as.numeric(1:1441),3)
+rownames(Temperature_comparison) <- c(1:4321)
+value <- c(Temperature_comparison[2881:4321,2],Temperature_comparison[2881:4321,3],
+           Temperature_comparison[2881:4321,4])
+condition <- factor(c(rep("FIELD",1441),rep("FL/FTH",1441),rep("CL/CTH",1441)),
+                    levels = c("FIELD", "FL/FTH","CL/CTH"))
+
+d <- data.frame(condition, time, value)
+
+g2 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
+  geom_line(size=0.25)+
+  scale_color_manual(values = color3)+
+  scale_x_continuous(
+    breaks=seq(1,1441,120),
+    labels=c("19","21","23","1","3","5","7","9","11","13","15","17","19"))+
+  ylim(15,30)+
+  ggtitle("Temperature")+
+  labs(x="Time(hour)", y = expression(paste("("^o, "C)")) )+
+  theme_cowplot(font_size = 7, line_size = 0.25)+
+  theme(plot.title = element_text(size=7, hjust = 0.5),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=7),
+        axis.text.x = element_text(size=7),
+        axis.text.y = element_text(size=7, colour = "black"),
+        legend.position = 'none')
+
+print(g2)
+
+# Humidity
+time <- rep(as.numeric(1:1441),3)
+rownames(Humidity_comparison) <- c(1:4321)
+value <- c(Humidity_comparison[2881:4321,2],Humidity_comparison[2881:4321,3],
+           Humidity_comparison[2881:4321,4])
+condition <- factor(c(rep("FIELD",1441),rep("FL/FTH",1441),rep("CL/CTH",1441)),
+                    levels = c("FIELD", "FL/FTH","CL/CTH"))
+
+d <- data.frame(condition, time, value)
+
+g3 <- ggplot(d, aes(x=time, y=value, group = condition, color=condition))+
+  geom_line(size=0.25)+
+  scale_color_manual(values = color3)+
+  scale_x_continuous(
+    breaks=seq(1,1441,120),
+    labels=c("19","21","23","1","3","5","7","9","11","13","15","17","19"))+
+  ylim(40,100)+
+  ggtitle("Relative humidity")+
+  labs(x="Time (hours)", y="(%)" )+
+  theme_cowplot(font_size = 7, line_size = 0.25)+
+  theme(plot.title = element_text(size=7, hjust = 0.5),
+        axis.title.x = element_text(size=7),
+        axis.title.y = element_text(size=7),
+        axis.text.x = element_text(size=7),
+        axis.text.y = element_text(size=7, colour = "black"),
+        legend.position = 'none')
+
+print(g3)
+
+mylegend <- get_legend(g1)
+g1 <- g1 + theme(legend.position="none")
+
+g <- plot_grid(mylegend, plot_grid(g1,g2,g3, ncol=1, align = "hv"),
+               ncol=1, rel_heights = c(1,9))
+
+ggsave(g, file=sprintf("%s_FigS6.pdf", exec.date),
+       width = 90, height = 120, units="mm")
