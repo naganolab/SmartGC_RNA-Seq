@@ -98,15 +98,15 @@ g <- ggplot(d, aes(x = d_FL_FTH, y = d_relative, color = col, group=col, alpha=c
 plot(g)
 
 ggsave(g, file=sprintf("%s/%s_Fig6d.pdf",dir.output, exec.date),
-       width = 55, height = 55, units = "mm")
+       width = 55, height =55, units = "mm")
 
-### Table S15,16,18,19 ----
-# S15S16
+### Table S16,17,18,19 ----
+# S16S17
 up_FIELD_FL_FTH <- d_mean_ratio[FIELD_up_FL_FTH_2]
-write.csv(up_FIELD_FL_FTH,file=sprintf("%s/%s_TableS15.csv",dir.output,exec.date))
+write.csv(up_FIELD_FL_FTH,file=sprintf("%s/%s_TableS16.csv",dir.output,exec.date))
 
 down_FIELD_FL_FTH <- d_mean_ratio[FIELD_down_FL_FTH_2]
-write.csv(down_FIELD_FL_FTH,file=sprintf("%s/%s_TableS16.csv",dir.output,exec.date))
+write.csv(down_FIELD_FL_FTH,file=sprintf("%s/%s_TableS17.csv",dir.output,exec.date))
 
 # S18S19
 up_FIELD_FL_FTH <- d_mean_ratio[Field_up_2]

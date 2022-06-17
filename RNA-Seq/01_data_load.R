@@ -72,16 +72,8 @@ names(drr) <- rownames(des)
 des2 <- des[drr,]
 
 # load expression data table-------------------------------------
-load(file="input/190521-2_rawcnt_Osativa_1")
-load(file="input/190521-2_rawcnt_Osativa_2")
-rawcnt <- cbind(rawcnt_1, rawcnt_2)
-save(rawcnt, file = "input/190521-2_rawcnt_Osativa")
-
-load(file="input/190521-3_rpm_Osativa_1")
-load(file="input/190521-3_rpm_Osativa_2")
-rpm <- cbind(rpm_1, rpm_2)
-save(rpm, file = "input/190521-3_rpm_Osativa")
-
+load(file="input/190521-2_rawcnt_Osativa")
+load(file="input/190521-3_rpm_Osativa")
 load(file="input/190521-4_cvrd1_Osativa")
 load(file="input/190521-5_cvrd3_Osativa")
 
@@ -168,16 +160,10 @@ save(log2rpm.ave, file = "input/210703_log2rpmave")
 at_204 <- read.delim("input/OsaYH_6_7_SampleAttribute.txt", header=T, as.is=T)
 
 # load expression data table-------------------------------------
-load(file="input/190515-2_rawcnt_Osativa_1")
-load(file="input/190515-2_rawcnt_Osativa_2")
-rawcnt <- cbind(rawcnt_1, rawcnt_2)
-save(rawcnt, file = "input/190515-2_rawcnt_Osativa")
-
-load(file="input/190515-3_rpm_Osativa_1")
-load(file="input/190515-3_rpm_Osativa_2")
-rpm <- cbind(rpm_1, rpm_2)
-save(rpm, file = "input/190515-3_rpm_Osativa")
-
+load(file="input/190515-2_rawcnt_Osativa")
+load(file="input/190515-3_rpm_Osativa")
+load(file="input/190515-4_cvrd1_Osativa")
+load(file="input/190515-5_cvrd3_Osativa")
 rpm2 <- rpm[drr,]
 log2rpm <- log2(rpm2+1)
 
@@ -251,6 +237,8 @@ log2rpm.sd <- log2rpm.sd[,2:69]
 ### name ----
 rawcnt_204 <- rawcnt
 rpm_204 <- rpm
+cvrd1_204 <- cvrd1
+cvrd3_204 <- cvrd3
 rpm2_204 <- rpm2
 log2rpm_204 <- log2rpm
 rpm.ave_204 <- rpm.ave
@@ -266,7 +254,7 @@ load(file="input/210703_log2rpm")
 load(file="input/210703_rpmave")
 load(file="input/210703_log2rpmave")
 
-### Fig. S5a ----
+### Fig. S7a ----
 a <- rawcnt[drr,]
 b <- apply(a, 2, sum)
 
@@ -293,10 +281,10 @@ g <- ggplot(d, aes(x = reads, fill=exp))+
         legend.justification = "center")
 p <- plot_grid(g)
 
-ggsave(p, file=sprintf("%s/%s_FigS5a.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS7a.pdf",dir.output, exec.date),
        width = 60, height = 40, units="mm")
 
-### Fig. S5b ----
+### Fig. S7b ----
 a <- rawcnt[drr,]
 e <- apply(a, 1, mean)
 e <- e[e>0]
@@ -321,5 +309,5 @@ g <- ggplot(d, aes(x = exp))+
         legend.justification = "center")
 p <- plot_grid(g)
 
-ggsave(p, file=sprintf("%s/%s_FigS5b.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS7b.pdf",dir.output, exec.date),
        width = 60, height = 40, units="mm")

@@ -398,7 +398,7 @@ for(i in 1:13){
   save(TCC_table, file = sprintf("%s/TCC/%s_TCC_0.05_%s", dir.output, exec.date, ID))
 }
 
-### Table S3 ----
+### Table S4 ----
 load("output/TCC/FIELD_FL_FTH/TCC_list")
 a <- TCC
 load("output/TCC/FIELD_CL_CTH/TCC_list")
@@ -410,7 +410,7 @@ d <- cbind(c,TCC)
 
 colnames(d) <- paste(rep(c("FL/FTH","CL/CTH","FL/CTH","CL/FTH"),each=13), rep(time,4), sep="_")
 
-write.table(d, file=sprintf("output/%s_TableS3.csv",exec.date),sep=",")
+write.table(d, file=sprintf("output/%s_TableS4.csv",exec.date),sep=",")
 
 ### DEG Field vs others table ----
 time <- factor(unique(at$hour), levels=unique(at$hour))
@@ -764,7 +764,7 @@ dat <- dat[tmp$rowInd,]
 ID <- as.character(b$ID)[apply(d,1,pvalue)]
 GO_Term <- ng.GetGOTerms(ID)[tmp$rowInd]
 
-# Table S5 ----
+# Table S6 ----
 dID <- rev(ID[tmp$rowInd])
 tex <- matrix(NA, nrow=length(dID), ncol=9)
 rownames(tex) <- dID
@@ -799,7 +799,7 @@ for(i in 1:length(dID)){
   tex[i,6:9] <- gg
 }
 
-write.csv(tex, file= sprintf("%s/%s_TableS5.csv", dir.output, exec.date),
+write.csv(tex, file= sprintf("%s/%s_TableS6.csv", dir.output, exec.date),
           row.names = F)
 
 # Fig. 4a ----
@@ -1266,7 +1266,7 @@ dat <- dat[tmp$rowInd,]
 ID <- as.character(b$ID)[apply(d,1,pvalue)]
 GO_Term <- ng.GetGOTerms(ID)[tmp$rowInd]
 
-# Table S6 ----
+# Table S7 ----
 dID <- rev(ID[tmp$rowInd])
 tex <- matrix(NA, nrow=length(dID), ncol=9)
 rownames(tex) <- dID
@@ -1300,7 +1300,7 @@ for(i in 1:length(dID)){
   tex[i,6:9] <- gg
 }
 
-write.csv(tex, file= sprintf("%s/%s_TableS6.csv", dir.output, exec.date),
+write.csv(tex, file= sprintf("%s/%s_TableS7.csv", dir.output, exec.date),
           row.names = F)
 
 # Fig. 4b ----
@@ -1528,7 +1528,7 @@ dat <- dat[tmp$rowInd,]
 ID <- as.character(b$ID)[apply(d,1,pvalue)]
 KEGG_Term <- kegg_description[ID][tmp$rowInd]
 
-# Table S7 ----
+# Table S8 ----
 dID <- rev(ID[tmp$rowInd])
 tex <- matrix(NA, nrow=length(dID), ncol=9)
 rownames(tex) <- dID
@@ -1563,7 +1563,7 @@ for(i in 1:length(dID)){
   tex[i,6:9] <- gg
 }
 
-write.csv(tex, file= sprintf("%s/%s_TableS7.csv", dir.output, exec.date),
+write.csv(tex, file= sprintf("%s/%s_TableS8.csv", dir.output, exec.date),
           row.names = F)
 
 # Fig. 4c ----
@@ -1998,7 +1998,7 @@ dat <- dat[tmp$rowInd,]
 ID <- as.character(b$ID)[apply(d,1,pvalue)]
 KEGG_Term <- kegg_description[ID][tmp$rowInd]
 
-# Table S8 ----
+# Table S9 ----
 dID <- rev(ID[tmp$rowInd])
 tex <- matrix(NA, nrow=length(dID), ncol=9)
 rownames(tex) <- dID
@@ -2033,7 +2033,7 @@ for(i in 1:length(dID)){
   tex[i,6:9] <- gg
 }
 
-write.csv(tex, file= sprintf("%s/%s_TableS8.csv", dir.output, exec.date),
+write.csv(tex, file= sprintf("%s/%s_TableS9.csv", dir.output, exec.date),
           row.names = F)
 
 # Fig. 4d ----
@@ -2744,7 +2744,7 @@ p <- plot_grid(gg, plot_grid(g1,g2), nrow=2, rel_heights = c(1,10))
 ggsave(p, file = sprintf("%s/%s_Fig5ab.pdf", dir.output, exec.date),
        width = 160, height = 50, units="mm")
 
-### Table S14 ----
+### Table S15 ----
 # ANOVA
 dat_lm <- d %>%
   group_by(type, hour) %>% 
@@ -2772,7 +2772,7 @@ d5 <- d4 %>%
 d5 <- d5[d5$type=="starch"|d5$type=="sucrose",] %>% 
       spread(., hour, significance)
 
-write.csv(d5,"output/210703_TableS14.csv",row.names = F)
+write.csv(d5,"output/210703_TableS15.csv",row.names = F)
 
 # Fig. 5c-e ----
 a <- read.csv("input/genelist_sugar_metabolism.csv")
@@ -3116,7 +3116,7 @@ pp <- plot_grid(mylegend, p1,
 ggsave(pp, file=sprintf("%s/%s_Fig6ce.pdf",dir.output, exec.date),
        width = 160, height = 130, units="mm")
 
-# Fig. S6 ----
+# Fig. S10 ----
 pca <- prcomp(t(log2rpm[raw_10,]), scale = T)
 pc <- pca$x
 #PC1 vs PC2
@@ -3178,7 +3178,7 @@ g <- ggplot()+
 
 g
 
-ggsave(g, file=sprintf("%s/%s_FigS6a.pdf",dir.output, exec.date),
+ggsave(g, file=sprintf("%s/%s_FigS10a.pdf",dir.output, exec.date),
        width = 90, height = 90, units = "mm")
 
 #
@@ -3211,10 +3211,10 @@ g <- ggplot()+
 
 g
 
-ggsave(g, file=sprintf("%s/%s_FigS6b.pdf",dir.output, exec.date),
+ggsave(g, file=sprintf("%s/%s_FigS10b.pdf",dir.output, exec.date),
        width = 105, height = 105, units = "mm")
 
-# Fig. S7a ----
+# Fig. S11a ----
 set <- factor(c(rep("FIELD",13),rep("FL/FTH",13),rep("CL/CTH",13),rep("FL/CTH",13),rep("CL/FTH",13)),
               levels = c("FIELD","FL/FTH","CL/CTH","FL/CTH","CL/FTH"))
 rpm2.ave <- log2rpm.ave[raw_10,]
@@ -3234,10 +3234,10 @@ p1 <- ggplot(as.ggdend(dend))+
   #theme(plot.margin= unit(c(1, 1, 1, 1), "lines"))
 
 
-ggsave(p1, file= sprintf("%s/%s_FigS7a.pdf", dir.output, exec.date),
+ggsave(p1, file= sprintf("%s/%s_FigS11a.pdf", dir.output, exec.date),
        width = 160, height = 80, units = "mm")
 
-# Fig. S14 ----
+# Fig. S17 ----
 ### KEGG
 # KEGG photosynthesis
 a <- kegg_rice[,"passway"]=="dosa00195"
@@ -3406,16 +3406,16 @@ p <- plot_grid(mylegend,
                          nrow = 8, align="hv"),
                ncol=1, rel_heights = c(1,20))
 
-ggsave(p, file=sprintf("%s/%s_FigS14.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS17.pdf",dir.output, exec.date),
        width = 160, height = 200, units="mm")
 
-# Table S13 ----
+# Table S14 ----
 load("input/Nagano2012/mpar_150124")
 mpar_kegg_antenna <- mpar[kegg_anntena_gene,]
-write.csv(mpar_kegg_antenna, file=sprintf("%s/%s_TableS13.csv",
+write.csv(mpar_kegg_antenna, file=sprintf("%s/%s_TableS14.csv",
                                           dir.output, exec.date))
 
-# Fig. S10 ----
+# Fig. S13 ----
 a <- read.csv("input/191025_clockgene.csv")
 ID <- as.character(a$ID[c(1:5,7,9:13)])
 lab <- as.character(a$name[c(1:5,7,9:13)])
@@ -3549,10 +3549,10 @@ p <- plot_grid(mylegend,
                          nrow = 6, align="hv"),
                ncol=1, rel_heights = c(1,20))
 
-ggsave(p, file=sprintf("%s/%s_FigS10.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS13.pdf",dir.output, exec.date),
        width = 160, height = 160, units="mm")
 
-# Fig. S11 ----
+# Fig. S14 ----
 a <- read.csv("input/191025_clockgene.csv")
 ID <- as.character(a$ID[c(15:21,23,24,22)])
 lab <- as.character(a$name[c(15:21,23,24,22)])
@@ -3685,10 +3685,10 @@ p <- plot_grid(mylegend,
                          nrow = 6, align="hv"),
                ncol=1, rel_heights = c(1,12))
 
-ggsave(p, file=sprintf("%s/%s_FigS11.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS14.pdf",dir.output, exec.date),
        width = 160, height = 180, units="mm")
 
-# Fig. S12 ----
+# Fig. S15 ----
 a <- read.csv("input/191025_clockgene.csv")
 ID <- as.character(a$ID[c(32,33,36:38,26:31)])
 lab <- c(rep("RVE",4),"LNK","PIL11","PIL12","PIL13","PIL14","PIL15","PIL16")
@@ -3821,10 +3821,10 @@ p <- plot_grid(mylegend,
                          nrow = 8, align="hv"),
                ncol=1, rel_heights = c(1,20))
 
-ggsave(p, file=sprintf("%s/%s_FigS12.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS15.pdf",dir.output, exec.date),
        width = 120, height = 200, units="mm")
 
-# Fig. S15 ----
+# Fig. S18 ----
 a <- read.csv("input/genelist_sugar_metabolism.csv")
 rownames(a) <- a$Gene.ID..RAP.DB.
 ID<- c("Os06g0160700","Os02g0744700","Os04g0624600","Os07g0412100",
@@ -3960,10 +3960,10 @@ p <- plot_grid(mylegend,
                          nrow = 6, align="hv"),
                ncol=1, rel_heights = c(1,20))
 
-ggsave(p, file=sprintf("%s/%s_FigS15.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS18.pdf",dir.output, exec.date),
        width = 160, height = 160, units="mm")
 
-# Fig. S16 ----
+# Fig. S19 ----
 a <- read.csv("input/genelist_sugar_metabolism.csv")
 rownames(a) <- a$Gene.ID..RAP.DB.
 ID <- as.character(a$Gene.ID..RAP.DB.[c(145:151,153,155,156,160,161,163)])
@@ -4102,10 +4102,10 @@ p <- plot_grid(mylegend,
                          ncol = 4, align="hv"),
                ncol=1, rel_heights = c(1,20))
 
-ggsave(p, file=sprintf("%s/%s_FigS17.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS19.pdf",dir.output, exec.date),
        width = 160, height = 200, units="mm")
 
-# Fig. S17 ----
+# Fig. S20 ----
 # GO:0000785 (chromatin)
 rpm2.ave <- rpm.ave[raw_10,]
 withgo <- ulg[ulg[,"GOid"]=="GO:0000785", "locus"]
@@ -4258,7 +4258,7 @@ g5_chro <- ggplot(d,aes(x=hours, y=value, group=con))+
 
 ### output is in 03_experiment2.R ###
 
-# Fig. S18 ----
+# Fig. S21 ----
 a <- read.delim("input/PRgenes.txt")
 rownames(a) <- a$rap
 b <- a[intersect(a$rap,FIELD_down_FL_FTH_2),]
@@ -4338,10 +4338,10 @@ g5 <- p$plot[[5]]+ theme(legend.position="none")
 g <- plot_grid(mylegend, plot_grid(g1,g2,NULL,g3,g4,g5,align = "hv", nrow=2),
                nrow=2, rel_heights = c(1,8))
 
-ggsave(g, file=sprintf("%s/%s_FigS18.pdf",dir.output, exec.date),
+ggsave(g, file=sprintf("%s/%s_FigS21.pdf",dir.output, exec.date),
        width = 150, height = 80, units="mm")
 
-# Fig. S19 ----
+# Fig. S22 ----
 ID <- c("Os03g0348200","Os08g0139700","Os08g0167800")
 lab <- as.character(des2[ID3,"Description"])
 names(lab) <- ID
@@ -4405,10 +4405,10 @@ p1 <- plot_grid(g1,g2,g3, ncol=3, align="hv")
 pp <- plot_grid(mylegend, p1,
                 ncol=1, rel_heights = c(1,5))
 
-ggsave(pp, file=sprintf("%s/%s_FigS19.pdf",dir.output, exec.date),
+ggsave(pp, file=sprintf("%s/%s_FigS22.pdf",dir.output, exec.date),
        width = 150, height = 40, units="mm")
 
-# Fig. S20 ----
+# Fig. S23 ----
 a <- read.delim("input/herbivore_response(Ye_et_al_2019).txt")
 ID <- as.character(a$rap)
 lab <- as.character(a$alias)
@@ -4488,5 +4488,5 @@ p <- plot_grid(mylegend,
                          nrow = 4, align="hv"),
                ncol=1, rel_heights = c(1,9))
 
-ggsave(p, file=sprintf("%s/%s_FigS20.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS23.pdf",dir.output, exec.date),
        width = 160, height = 120, units="mm")

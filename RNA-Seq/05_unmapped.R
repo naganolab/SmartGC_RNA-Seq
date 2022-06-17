@@ -37,7 +37,7 @@ rawcnt_blast <- cbind(rawcnt_sum,b[,c(20:25,1:19)])
 
 write.csv(rawcnt_blast, file=sprintf("%s/%s_TableS17.csv",dir.output, exec.date))
 
-### Fig. S21 ----
+### Fig. S24 ----
 condition <- factor(at$condition, levels = c("FIELD","FL/FTH","CL/CTH","FL/CTH","CL/FTH"))
 time <- factor(unique(at$hour), levels=unique(at$hour))
 hour <- factor(at$hour, levels = time)
@@ -76,7 +76,7 @@ p <- ggplot(d,aes(x=cvrd, y=count))+
         legend.title = element_blank(),
         legend.text = element_blank())
 
-ggsave(p, file=sprintf("%s/%s_FigS21.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS24.pdf",dir.output, exec.date),
        width = 80, height = 80, units="mm")
 
 # Fig. 6f ----
@@ -143,7 +143,7 @@ g <- plot_grid(mylegend, plot_grid(g1,g2,g3,g4,g5,g6, ncol=2, align = "hv"),
 ggsave(g, file=sprintf("%s/%s_Fig6f.pdf",dir.output, exec.date),
        width = 40, height = 80, units="mm")
 
-# Fig S23 ----
+# Fig S25 ----
 rawcnt_extra_selected <- rawcnt_extra[c(2,11,12,15,16,18),]
 
 col <- factor(c(rep("FIELD",52),rep("Exp1_the_others",208),rep("Exp2",204)),
@@ -197,5 +197,5 @@ for (j in 1:6){
 ppp <- plot_grid(mylegend, plot_grid(gg[[1]],gg[[2]],gg[[3]],gg[[4]],gg[[5]],gg[[6]], ncol=2),
                  ncol=1, rel_heights = c(1,19))
 
-ggsave(ppp, file=sprintf("%s/%s_FigS23.pdf",dir.output, exec.date),
+ggsave(ppp, file=sprintf("%s/%s_FigS25.pdf",dir.output, exec.date),
        width = 160, height = 170, units="mm")

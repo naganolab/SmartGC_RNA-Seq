@@ -123,7 +123,7 @@ p3 <- ggplot(as.dendrogram(dend2))+
 ggsave(p3, file= sprintf("%s/%s_Fig1j2.pdf", dir.output, exec.date),
        width = 200, height = 100, units = "mm")
 
-# Fig. S9 ----
+# Fig. S12 ----
 pca <- prcomp(t(log2rpm_204[raw_10,]), scale = T)
 pc <- pca$x
 #PC1 vs PC2
@@ -185,7 +185,7 @@ g <- ggplot()+
 
 g
 
-ggsave(g, file=sprintf("%s/%s_FigS9a.pdf",dir.output, exec.date),
+ggsave(g, file=sprintf("%s/%s_FigS12a.pdf",dir.output, exec.date),
        width = 90, height = 90, units = "mm")
 
 # plot
@@ -217,10 +217,10 @@ g <- ggplot()+
 
 g
 
-ggsave(g, file=sprintf("%s/%s_FigS9b.pdf",dir.output, exec.date),
+ggsave(g, file=sprintf("%s/%s_FigS12b.pdf",dir.output, exec.date),
        width = 105, height = 105, units = "mm")
 
-# Fig. S7b ----
+# Fig. S11b ----
 set <- factor(c(rep("FL/FTH",17),rep("CL/CTH",17),rep("FL/CTH",17),rep("CL/FTH",17)),
               levels = c("FL/FTH","CL/CTH","FL/CTH","CL/FTH"))
 rpm2.ave <- log2rpm.ave_204[raw_10,]
@@ -240,7 +240,7 @@ p1 <- ggplot(as.ggdend(dend))+
 #theme(plot.margin= unit(c(1, 1, 1, 1), "lines"))
 
 
-ggsave(p1, file= sprintf("%s/%s_FigS7b.pdf", dir.output, exec.date),
+ggsave(p1, file= sprintf("%s/%s_FigS11b.pdf", dir.output, exec.date),
        width = 160, height = 80, units = "mm")
 
 ### DEGs by TCC (Sun et al., 2013; Tang et al., 2015) ----
@@ -350,7 +350,7 @@ load("output/TCC_204/FL_FTH_CL_FTH/TCC_204_list")
 c <- cbind(b,TCC_204)
 
 colnames(c) <- paste(rep(c("CL/CTH","FL/CTH","CL/FTH"),each=17), rep(time,3), sep="_")
-write.table(c, file=sprintf("output/%s_TableS4.csv",exec.date),sep=",")
+write.table(c, file=sprintf("output/%s_TableS5.csv",exec.date),sep=",")
 
 ### TCC table ----
 time <- time_204
@@ -765,7 +765,7 @@ dat <- dat[tmp$rowInd,]
 ID <- as.character(b$ID)[apply(d,1,pvalue)]
 GO_Term <- ng.GetGOTerms(ID)[tmp$rowInd]
 
-# Table S9 ----
+# Table S10 ----
 dID <- rev(ID[tmp$rowInd])
 tex <- matrix(NA, nrow=length(dID), ncol=9)
 rownames(tex) <- dID
@@ -798,13 +798,13 @@ for(i in 1:length(dID)){
   tex[i,6:9] <- gg
 }
 
-write.csv(tex, file= sprintf("%s/%s_TableS9.csv", dir.output, exec.date),
+write.csv(tex, file= sprintf("%s/%s_TableS10.csv", dir.output, exec.date),
           row.names = F)
 
-# Fig. S13a ----
+# Fig. S16a ----
 dat[dat >= log10(0.05)] <- 0
 
-png(sprintf("%s/%s_FigS13a.png",dir.output,exec.date),
+png(sprintf("%s/%s_FigS16a.png",dir.output,exec.date),
     width = 40.107, height = 60.269, units = "mm", res = 1000)
 
 par(mar=c(0,0,0,0))
@@ -822,7 +822,7 @@ box(lwd=0.6)
 dev.off()
 
 #
-pdf(sprintf("%s/%s_FigS13a_2.pdf",dir.output,exec.date),
+pdf(sprintf("%s/%s_FigS16a_2.pdf",dir.output,exec.date),
     width = 7, height = 12)
 
 par(oma=c(0,10,0,0))
@@ -1167,7 +1167,7 @@ dat <- dat[tmp$rowInd,]
 ID <- as.character(b$ID)[apply(d,1,pvalue)]
 GO_Term <- ng.GetGOTerms(ID)[tmp$rowInd]
 
-# Table S10 ----
+# Table S11 ----
 dID <- rev(ID[tmp$rowInd])
 tex <- matrix(NA, nrow=length(dID), ncol=9)
 rownames(tex) <- dID
@@ -1200,13 +1200,13 @@ for(i in 1:length(dID)){
   tex[i,6:9] <- gg
 }
 
-write.csv(tex, file= sprintf("%s/%s_TableS10.csv", dir.output, exec.date),
+write.csv(tex, file= sprintf("%s/%s_TableS11.csv", dir.output, exec.date),
           row.names = F)
 
-# Fig. S13b ----
+# Fig. S16b ----
 dat[dat >= log10(0.05)] <- 0
 
-png(sprintf("%s/%s_FigS13b.png",dir.output,exec.date),
+png(sprintf("%s/%s_FigS16b.png",dir.output,exec.date),
     width = 40.107, height = 36.91, units = "mm", res = 1000)
 
 par(mar=c(0,0,0,0))
@@ -1224,7 +1224,7 @@ box(lwd=0.6)
 dev.off()
 
 #
-pdf(sprintf("%s/%s_FigS13b_2.pdf",dir.output,exec.date),
+pdf(sprintf("%s/%s_FigS16b_2.pdf",dir.output,exec.date),
     width = 7, height = 12)
 
 par(oma=c(0,10,0,0))
@@ -1416,7 +1416,7 @@ dat <- dat[tmp$rowInd,]
 ID <- as.character(b$ID)[apply(d,1,pvalue)]
 KEGG_Term <- kegg_description[ID][tmp$rowInd]
 
-# Table S11 ----
+# Table S12 ----
 dID <- rev(ID[tmp$rowInd])
 tex <- matrix(NA, nrow=length(dID), ncol=9)
 rownames(tex) <- dID
@@ -1449,10 +1449,10 @@ for(i in 1:length(dID)){
   tex[i,6:9] <- gg
 }
 
-write.csv(tex, file= sprintf("%s/%s_TableS11.csv", dir.output, exec.date),
+write.csv(tex, file= sprintf("%s/%s_TableS12.csv", dir.output, exec.date),
           row.names = F)
 
-# Fig. S13c ----
+# Fig. S16c ----
 dat[dat >= log10(0.05)] <- 0
 
 png(sprintf("%s/%s_FigS13c.png",dir.output,exec.date),
@@ -1473,7 +1473,7 @@ box(lwd=0.6)
 dev.off()
 
 #
-pdf(sprintf("%s/%s_FigS13c_2.pdf",dir.output,exec.date),
+pdf(sprintf("%s/%s_FigS16c_2.pdf",dir.output,exec.date),
     width = 7, height = 12)
 
 par(oma=c(0,10,0,0))
@@ -1795,7 +1795,7 @@ dat <- dat[tmp$rowInd,]
 ID <- as.character(b$ID)[apply(d,1,pvalue)]
 KEGG_Term <- kegg_description[ID][tmp$rowInd]
 
-# Table S12 ----
+# Table S13 ----
 dID <- rev(ID[tmp$rowInd])
 tex <- matrix(NA, nrow=length(dID), ncol=9)
 rownames(tex) <- dID
@@ -1828,13 +1828,13 @@ for(i in 1:length(dID)){
   tex[i,6:9] <- gg
 }
 
-write.csv(tex, file= sprintf("%s/%s_TableS12.csv", dir.output, exec.date),
+write.csv(tex, file= sprintf("%s/%s_TableS13.csv", dir.output, exec.date),
           row.names = F)
 
-# Fig. S13d ----
+# Fig. S16d ----
 dat[dat >= log10(0.05)] <- 0
 
-png(sprintf("%s/%s_FigS13d.png",dir.output,exec.date),
+png(sprintf("%s/%s_FigS16d.png",dir.output,exec.date),
     width = 95.227, height = 35.538, units = "mm", res = 1000)
 
 par(mar=c(0,0,0,0))
@@ -1852,7 +1852,7 @@ box(lwd=0.6)
 dev.off()
 
 #
-pdf(sprintf("%s/%s_FigS13d_2.pdf",dir.output,exec.date),
+pdf(sprintf("%s/%s_FigS16d_2.pdf",dir.output,exec.date),
     width = 7, height = 12)
 
 par(oma=c(0,10,0,0))
@@ -1870,7 +1870,7 @@ title("")
 
 dev.off()
 
-# Fig. S17 ----
+# Fig. S20 ----
 rpm2.ave <- rpm.ave[raw_10,]
 withgo <- ulg[ulg[,"GOid"]=="GO:0000785", "locus"]
 usegene <- intersect(withgo, rownames(rpm2.ave)) 
@@ -2004,5 +2004,5 @@ g5 <- ggplot(d,aes(x=hours, y=value, group=con))+
 p <- plot_grid(g1_chro,g2_chro,g3_chro,g4_chro,g5_chro,NULL,g2,g3,g4,g5,
           ncol=5, align="hv")
 
-ggsave(p, file=sprintf("%s/%s_FigS17.pdf",dir.output, exec.date),
+ggsave(p, file=sprintf("%s/%s_FigS20.pdf",dir.output, exec.date),
        width = 160, height = 80, unit="mm")
